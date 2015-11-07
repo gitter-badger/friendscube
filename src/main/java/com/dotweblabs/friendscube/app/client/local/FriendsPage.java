@@ -42,7 +42,7 @@ import javax.inject.Inject;
  * @since 1.0
  */
 @Dependent
-@Templated(value = "/templates/FriendsPage.html#friends", provider = ServerTemplateProvider.class)
+@Templated(value = "/FriendsPage.html#friends", provider = ServerTemplateProvider.class)
 @Page
 public class FriendsPage extends Composite {
 

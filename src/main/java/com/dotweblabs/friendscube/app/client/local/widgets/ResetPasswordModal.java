@@ -27,6 +27,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.inject.Inject;
+import org.jboss.errai.ui.shared.ServerTemplateProvider;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
@@ -42,7 +43,7 @@ import static com.google.gwt.query.client.GQuery.*;
  * @since 1.0
  */
 @Dependent
-@Templated
+@Templated(value = "/LoginPage.html#resetPasswordModal", provider = ServerTemplateProvider.class)
 public class ResetPasswordModal extends Composite {
 
     @Inject

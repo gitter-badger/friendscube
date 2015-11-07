@@ -31,7 +31,7 @@ import javax.inject.Inject;
  * @since 1.0
  */
 @Dependent
-@Templated(value = "/templates/SettingsPage.html#settings", provider = ServerTemplateProvider.class)
+@Templated(value = "/SettingsPage.html#settings", provider = ServerTemplateProvider.class)
 @Page
 public class SettingsPage extends Composite {
     @Inject

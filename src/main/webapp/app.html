@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Friendscube | Homepage</title>
+	<meta name="description" content="Friendscube SNS">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--UIKIT ASSETS!-->
+	<link rel="stylesheet" href="uikit-assets/css/uikit.min.css" />
+	<link rel="stylesheet" href="uikit-assets/css/uikit.almost-flat.css" />
+	<!-- TEMPLATE ASSETS!-->
+	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="css/octicons/octicons.css">
+	<link rel="stylesheet" href="css/template.css" />
+    <script src="js/plugins.js"></script>
+	<script src="js/main.js"></script>
+	<script type="text/javascript" language="javascript" src="app/app.nocache.js"></script>
+	<script type="text/javascript">erraiBusRemoteCommunicationEnabled = false;</script>
+</head>
+<body>
+	<div id="rootPanel"></div>
+
+	<!-- This is the off-canvas sidebar -->
+	<div id="sidebar-navigation" class="uk-offcanvas">
+		<div class="uk-offcanvas-bar">...</div>
+	</div>
+
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+	<script src="js/jquery-ui.js"></script>
+
+	<!-- addons !-->
+	<script src="uikit-assets/js/uikit.min.js"></script>
+	<script src="uikit-assets/js/addons/sticky.js"></script>
+	<script type="text/javascript">
+			$(document).ready(function(){
+				$("#notif").click(function(){
+					$("#notificationContainer").fadeToggle(300);
+					$("#notification_count").fadeOut("slow");
+					return false;
+				});
+
+				//Document Click
+				$(document).click(function(){
+					$("#notificationContainer").hide();
+				});
+				//Popup Click
+				$("#notificationContainer").click(function(){
+					return false
+				});
+			})
+
+    </script>
+    <script src='media-element/lib/mediaelement.js'></script>
+    <script src='media-element/lib/mediaelementplayer.js'></script>
+    <script>
+        $(document).ready(function () {
+            $('audio,video').mediaelementplayer({
+                videoWidth: '100%',
+                videoHeight: '100%',
+                audioWidth: '100%',
+                features: ['playpause','progress','tracks','volume'],
+                videoVolume: 'horizontal'
+            });
+        });
+    </script>
+</body>
+</html>

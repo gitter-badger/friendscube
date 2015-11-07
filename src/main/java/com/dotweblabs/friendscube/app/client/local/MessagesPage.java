@@ -54,7 +54,7 @@ import java.util.List;
  * @since 1.0
  */
 @Dependent
-@Templated(value = "/templates/MessagesPage.html#messages", provider = ServerTemplateProvider.class)
+@Templated(value = "/MessagesPage.html#messages", provider = ServerTemplateProvider.class)
 @Page
 public class MessagesPage extends Composite  {
     @Inject

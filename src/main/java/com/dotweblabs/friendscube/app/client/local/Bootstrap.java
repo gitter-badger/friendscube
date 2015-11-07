@@ -31,7 +31,7 @@ import org.jboss.errai.ui.shared.ServerTemplateProvider;
  * @version 1.0
  * @since 1.0
  */
-@Templated(value = "/templates/Bootstrap.html#main", provider = ServerTemplateProvider.class)
+@Templated(value = "/Bootstrap.html#main", provider = ServerTemplateProvider.class)
 @ApplicationScoped
 @EntryPoint
 public class Bootstrap extends Composite {

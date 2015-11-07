@@ -48,7 +48,7 @@ import org.restlet.client.resource.Result;
  * @since 1.0
  */
 @Dependent
-@Templated(value = "/templates/WelcomePage.html#welcome", provider = ServerTemplateProvider.class)
+@Templated(value = "/WelcomePage.html#welcome", provider = ServerTemplateProvider.class)
 @Page(role = DefaultPage.class)
 public class WelcomePage extends Composite {
 
@@ -56,13 +56,9 @@ public class WelcomePage extends Composite {
     @DataField
     Anchor uploadProfilePic;
 
-    @Inject
-    @DataField
-    Anchor uploadCoverPhoto;
-
-    @Inject
-    @DataField
-    ProfileInfoWidget profileInfo;
+//    @Inject
+//    @DataField
+//    Anchor uploadCoverPhoto;
 
     @Inject
     @DataField
@@ -149,8 +145,6 @@ public class WelcomePage extends Composite {
                 public void onSuccess(Profile result) {
                     loggedInUser.getUser().setProfile(result);
                     statusLabel.setText("What's up " + result.getFirstName());
-                    profileInfo.setProfile(result);
-                    profileInfo.initEditableFields();
                     if(result.getPhoto() != null && !result.getPhoto().isEmpty()){
                         profilePic.getElement().setAttribute("src", result.getPhoto());
                     }
@@ -221,12 +215,12 @@ public class WelcomePage extends Composite {
         uploadProfilePicModal.show();
     }
 
-    @EventHandler("uploadCoverPhoto")
-    public void uploadCoverPhoto(ClickEvent event) {
-        event.preventDefault();
-        uploadProfilePicModal.setUploadType("cover_photo");
-        uploadProfilePicModal.show();
-    }
+//    @EventHandler("uploadCoverPhoto")
+//    public void uploadCoverPhoto(ClickEvent event) {
+//        event.preventDefault();
+//        uploadProfilePicModal.setUploadType("cover_photo");
+//        uploadProfilePicModal.show();
+//    }
 
 
 }

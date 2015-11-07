@@ -32,7 +32,7 @@ import javax.enterprise.context.Dependent;
  * @since 1.0
  */
 @Dependent
-@Templated(value = "/templates/ErrorPage.html#error", provider = ServerTemplateProvider.class)
+@Templated(value = "/ErrorPage.html#error", provider = ServerTemplateProvider.class)
 @Page
 public class ErrorPage extends Composite{
 

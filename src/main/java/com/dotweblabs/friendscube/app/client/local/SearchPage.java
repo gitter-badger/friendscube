@@ -43,7 +43,7 @@ import javax.inject.Inject;
  * @since 1.0
  */
 @Dependent
-@Templated(value = "/templates/SearchPage.html#search", provider = ServerTemplateProvider.class)
+@Templated(value = "/SearchPage.html#search", provider = ServerTemplateProvider.class)
 @Page
 public class SearchPage extends Composite {
 

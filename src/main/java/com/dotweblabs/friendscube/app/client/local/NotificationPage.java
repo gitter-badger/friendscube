@@ -43,7 +43,7 @@ import javax.inject.Inject;
  * @since 1.0
  */
 @Dependent
-@Templated(value = "/templates/NotificationPage.html#notification", provider = ServerTemplateProvider.class)
+@Templated(value = "/NotificationPage.html#notification", provider = ServerTemplateProvider.class)
 @Page
 public class NotificationPage extends Composite{
 

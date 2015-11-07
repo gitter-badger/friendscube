@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js"> <!--<![endif]-->
+    <head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Friendscube | Friends Page</title>
+		<meta name="description" content="Playlist">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--UIKIT ASSETS!-->
+		<link rel="stylesheet" href="uikit-assets/css/uikit.min.css" />
+		<link rel="stylesheet" href="uikit-assets/css/uikit.almost-flat.css" />
+		<!-- TEMPLATE ASSETS!-->
+		<link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+		<link rel="stylesheet" href="css/octicons/octicons.css">
+		<link rel="stylesheet" href="css/template.css" />
+		
+		<script src="js/plugins.js"></script>
+		<script src="js/main.js"></script>
+    </head>
+    <body>
+	<div data-field="friends" class="uk-grid">
+		<div class="uk-width-1-1">
+			<div data-field="navBar" id="navigation" role="navigation">
+				<div class="uk-container-center uk-width-medium-1-1 uk-width-large-7-10">
+					<nav class="uk-navbar uk-grid" role="custom-navbar-skins">
+						<div class="uk-width-small-3-10 uk-with-medium-6-10 uk-width-large-3-10 uk-hidden-small">
+							<img role="logo" src="img/logo.png" class="uk-width-5-10 uk-width-large-8-10 uk-width-medium-1-1">
+						</div>
+						<a href="#sidebar-navigation" class="uk-navbar-toggle uk-visible-small uk-margin-large-left uk-margin-small-top" role="small-menu" data-uk-offcanvas></a>
+						<div class="uk-width-6-10 uk-visible-small">
+							<img class="uk-width-8-10 uk-align-center" src="img/logo.png" role="logo">
+						</div>
+						<div class="uk-navbar-content uk-hidden-small uk-width-large-5-10 uk-width-medium-4-10 uk-margin-small-top">
+							<form class="uk-form uk-margin-remove uk-display-inline-block uk-width-9-10">
+								<div class="uk-form-icon uk-form-icon-flip ">
+									<input type="text" class="uk-form-width-large" placeholder="Find Stuff">
+									<i class="uk-icon-search"></i>
+								</div>
+							</form>
+						</div>
+						<div class="uk-width-2-10 uk-hidden-small uk-margin-top">
+							<div class="uk-button-group uk-width-9-10">
+								<a href="#" class="uk-button" role="nav-icon"><i class="uk-icon-comment"></i></a>
+								<a href="#" class="uk-button" role="nav-icon"><i class="uk-icon-globe"></i></a>
+								<a href="#" class="uk-button" role="nav-icon"><i class="uk-icon-wrench"></i></a>
+								<a href="#" class="uk-button" role="nav-icon"><span style="color:white;">Logout</span></a>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<div class="uk-width-1-1 uk-margin-large-top">
+		<div class="uk-width-large-7-10 uk-container-center">
+			<div role="cover-photo">
+					<img src="img/cover.jpg">
+			</div>
+		 </div>
+			<div class="uk-container-center uk-width-medium-1-1 uk-width-large-7-10 uk-margin-small-bottom" role="main-content">
+				<div class="uk-grid uk-grid-small">
+					 <div class="uk-width-large-1-1 uk-container-center" style="margin-top: -40px;">
+						<div class="uk-grid">
+							<div class="uk-width-large-3-10">
+								<div id="profile_wrapper" role="profile-wall-cover" class="uk-width-7-10">
+									<div class="uk-overlay">
+										<img src="img/profile_pic.jpg">
+										<div class="uk-overlay-area">
+											<div class="uk-overlay-area-content">
+												 <p>Change your profile picture.</p>
+												<a class="uk-button" href="#" role="nav-icon"><i class="uk-icon-camera-retro" style="font-size: 40pt;"></i></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div data-field="userNav" class="uk-width-large-5-10">
+								<div class="uk-grid">
+									<div class="uk-width-large-1-4">
+										<div role="user-profile-nav"><span>14</span>&nbsp;Updates</div>
+									</div>
+									<div class="uk-width-large-1-4">
+										<div role="user-profile-nav-blue"><span>14</span>&nbsp;Friends</div>
+									</div>
+									<div class="uk-width-large-1-4">
+										<div role="user-profile-nav-blue">&nbsp;Groups</div>
+									</div>
+									<div class="uk-width-large-1-4">
+										<div role="user-profile-nav-blue">More</div>
+									</div>
+								</div>
+							</div>
+							<div class="uk-width-large-2-10">
+									<button class="uk-button uk-button-success">Message</button>
+									<button class="uk-button uk-button-primary">Follow</button>
+							</div>
+						</div>
+					 </div>
+					<div class="uk-width-large-1-1 uk-container-center uk-margin-large-top">
+						 <h3>Your Friends</h3>
+						 <div class="uk-grid" data-field="friendsList">
+							<div class="uk-width-large-1-2">
+								<div class="uk-grid">
+									<div class="uk-width-large-1-1">
+										<div class="uk-grid uk-grid-small">
+											<div class="uk-width-large-3-10">
+												<img class="uk-width-8-10" src="img/profile_pic.jpg">
+											</div>
+											<div class="uk-width-large-4-10">
+												<span role="user-friend-name">{friend.name} </span><br>
+												<span role="user-friend-status">{friend.job}</span>
+											</div>
+											<div class="uk-width-large-3-10">
+												<button role="user-friend-follow-btn" class="uk-button uk-width-large-1-1 uk-button-large">Following</button>
+											</div>
+										</div>
+									</div>
+									<div class="uk-width-large-1-1 uk-margin-top">
+										<div class="uk-grid uk-grid-small">
+											<div class="uk-width-large-3-10">
+												<img class="uk-width-8-10" src="img/profile_pic.jpg">
+											</div>
+											<div class="uk-width-large-4-10">
+												<span role="user-friend-name">{friend.name} </span><br>
+												<span role="user-friend-status">{friend.job}</span>
+											</div>
+											<div class="uk-width-large-3-10">
+												<button role="user-friend-follow-btn" class="uk-button uk-width-large-1-1 uk-button-large">Following</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="uk-width-large-1-2">
+								<div class="uk-grid">
+									<div class="uk-width-large-1-1">
+										<div class="uk-grid uk-grid-small">
+											<div class="uk-width-large-3-10">
+												<img class="uk-width-8-10" src="img/profile_pic.jpg">
+											</div>
+											<div class="uk-width-large-4-10">
+												<span role="user-friend-name">{friend.name} </span><br>
+												<span role="user-friend-status">{friend.job}</span>
+											</div>
+											<div class="uk-width-large-3-10">
+												<button role="user-friend-follow-btn" class="uk-button uk-width-large-1-1 uk-button-large">Following</button>
+											</div>
+										</div>
+									</div>
+									<div class="uk-width-large-1-1 uk-margin-top">
+										<div class="uk-grid uk-grid-small">
+											<div class="uk-width-large-3-10">
+												<img class="uk-width-8-10" src="img/profile_pic.jpg">
+											</div>
+											<div class="uk-width-large-4-10">
+												<span role="user-friend-name">{friend.name} </span><br>
+												<span role="user-friend-status">{friend.job}</span>
+											</div>
+											<div class="uk-width-large-3-10">
+												<button role="user-friend-follow-btn" class="uk-button uk-width-large-1-1 uk-button-large">Following</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						 </div>
+						</div>	 
+						<div class="uk-container-center uk-width-medium-1-1 uk-width-large-4-10 uk-margin-small-bottom uk-margin-top" style="text-align:center;">
+							<span> Friendscube&copy;2015</span>
+						</div>
+				</div>
+			</div>		
+		</div>
+	</div>
+	<!-- This is the off-canvas sidebar -->
+	<div id="sidebar-navigation" class="uk-offcanvas">
+		<div class="uk-offcanvas-bar">...</div>
+	</div>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+	<script src="js/jquery-ui.js"></script>
+	
+	<!-- addons !-->
+	<script src="uikit-assets/js/uikit.min.js"></script>
+	<script src="uikit-assets/js/addons/sticky.js"></script>
+    </body>
+</html>

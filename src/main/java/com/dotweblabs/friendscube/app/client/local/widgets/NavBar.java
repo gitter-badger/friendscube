@@ -48,7 +48,7 @@ import javax.inject.Inject;
  * @since 1.0
  */
 @Dependent
-@Templated(value = "/templates/index.html#navBar", provider = ServerTemplateProvider.class)
+@Templated(value = "/WelcomePage.html#navBar", provider = ServerTemplateProvider.class)
 
 public class NavBar extends Composite {
 

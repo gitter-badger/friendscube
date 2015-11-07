@@ -61,7 +61,7 @@ import static com.google.gwt.query.client.GQuery.*;
  * @since 1.0
  */
 @Dependent
-@Templated(value = "/templates/LoginPage.html#login", provider = ServerTemplateProvider.class)
+@Templated(value = "/LoginPage.html#login", provider = ServerTemplateProvider.class)
 @Page
 public class LoginPage extends Composite {
 
@@ -84,10 +84,6 @@ public class LoginPage extends Composite {
     @Inject
     @DataField
     Button loginButton;
-
-    @Inject
-    @DataField
-    Button facebookLogin;
 
     @Inject
     @DataField
@@ -296,12 +292,6 @@ public class LoginPage extends Composite {
             }
         });
     }
-
-    @EventHandler("facebookLogin")
-    public void facebookLogin(ClickEvent event) {
-        // TODO
-    }
-
 
     private void loadCss() {
         CssHelper.loadCss("uikit-assets/css/uikit.min.css");

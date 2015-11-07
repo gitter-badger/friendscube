@@ -57,7 +57,7 @@ import javax.inject.Inject;
  * @since 1.0
  */
 @Dependent
-@Templated(value = "/templates/UserFeedsPage.html#userfeeds", provider = ServerTemplateProvider.class)
+@Templated(value = "/UserFeedsPage.html#userfeeds", provider = ServerTemplateProvider.class)
 @Page
 public class UserFeedsPage extends Composite {
 
@@ -91,9 +91,9 @@ public class UserFeedsPage extends Composite {
     @Inject
     LoggedInUser loggedInUser;
 
-    @Inject
-    @DataField
-    ProfileInfoWidget profileInfo;
+//    @Inject
+//    @DataField
+//    ProfileInfoWidget profileInfo;
 
     @Inject
     @DataField
@@ -167,15 +167,15 @@ public class UserFeedsPage extends Composite {
         });
     }
 
-    private void setProfileInfoToPage() {
-        profileInfo.setProfile(profile);
-        if(profile.getPhoto() != null && !profile.getPhoto().isEmpty()){
-            profilePic.getElement().setAttribute("src", profile.getPhoto());
-        }
-        if(profile.getCoverPhoto() != null && !profile.getCoverPhoto().isEmpty()){
-            coverPhoto.getElement().setAttribute("src", profile.getCoverPhoto());
-        }
-    }
+//    private void setProfileInfoToPage() {
+//        profileInfo.setProfile(profile);
+//        if(profile.getPhoto() != null && !profile.getPhoto().isEmpty()){
+//            profilePic.getElement().setAttribute("src", profile.getPhoto());
+//        }
+//        if(profile.getCoverPhoto() != null && !profile.getCoverPhoto().isEmpty()){
+//            coverPhoto.getElement().setAttribute("src", profile.getCoverPhoto());
+//        }
+//    }
 
     private String getClientToken() {
         String token;
@@ -201,14 +201,14 @@ public class UserFeedsPage extends Composite {
                 @Override
                 public void onSuccess(Profile result) {
                     profile = result;
-                    setProfileInfoToPage();
+                    //setProfileInfoToPage();
                     setStatusesToPage();
 
                 }
             });
         } else {
             profile = loggedInUser.getUser().getProfile();
-            setProfileInfoToPage();
+            //setProfileInfoToPage();
             setStatusesToPage();
             addFriendButton.setVisible(false);
         }

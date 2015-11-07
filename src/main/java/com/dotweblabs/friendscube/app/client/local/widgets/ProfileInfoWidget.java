@@ -28,6 +28,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
 import com.google.inject.Inject;
+import org.jboss.errai.ui.shared.ServerTemplateProvider;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
 import org.restlet.client.resource.Result;
@@ -41,7 +42,7 @@ import javax.enterprise.context.Dependent;
  * @since 1.0
  */
 @Dependent
-@Templated
+@Templated(value = "/WelcomePage.html#profileInfo", provider = ServerTemplateProvider.class)
 public class ProfileInfoWidget extends Composite {
 
     @Inject
