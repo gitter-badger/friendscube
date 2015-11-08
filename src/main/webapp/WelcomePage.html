@@ -185,24 +185,24 @@
 								<button data-field="statusButton" type="button" class="uk-button uk-button-success uk-float-right uk-margin-top uk-width-large-2-10 uk-width-medium-2-10" role="update-btn">UPDATE</button>
 							</div>
 							<div data-field="statuses" class="uk-width-1-1 uk-margin-top">
-								<div data-field="statusItem" class="uk-grid uk-grid-small">
+								<div data-field="statusItem" class="uk-grid uk-grid-small uk-animation-fade">
 									<div class="uk-width-1-10">
 										<img src="img/profile_pic.jpg">
 									</div>
 									<div class="uk-width-9-10">
 										<div class="uk-grid">
 											<div class="uk-width-large-1-1">
-												<h3 data-field="profileName" role="user-name">{user.name}</h3>
+												<h3 data-field="profileName" role="user-name">${user.fullname}</h3>
 											</div>
 											<div class="uk-width-large-1-1">
-												<p data-field="message">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
+												<p data-field="message">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod  <a href="#">link</a></p>
 											</div>
 											<div class="uk-width-large-1-1 uk-margin-top">
-												<span><i class="fa fa-clock-o"></i><span data-field="time">>&nbsp;{status.modified}</span></span>
+												<span><i class="fa fa-clock-o"></i>&nbsp;<p data-field="time"></p></span>
 											</div>
 											<div class="uk-width-large-1-1 uk-margin-top">
-												<div class="uk-grid uk-grid-small">
-													<div data-field="like" class="uk-width-large-1-10 uk-width-3-10">
+												<div class="uk-grid uk-grid-small uk-hide">
+													<div class="uk-width-large-1-10 uk-width-3-10" data-field="like">
 														<span><i class="fa fa-heart"></i> &nbsp;Like </span>
 													</div>
 													<div class="uk-width-large-2-10 uk-width-4-10">

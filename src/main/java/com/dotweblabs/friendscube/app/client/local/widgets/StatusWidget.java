@@ -36,7 +36,7 @@ import javax.inject.Inject;
  * @since 1.0
  */
 @Dependent
-@Templated(value = "/WelcomePage.html#statusItem", provider = ServerTemplateProvider.class)
+@Templated
 public class StatusWidget extends Composite implements HasModel<Status> {
 
     @Inject

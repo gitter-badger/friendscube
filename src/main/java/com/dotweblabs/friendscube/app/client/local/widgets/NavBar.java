@@ -30,6 +30,8 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.*;
 import org.jboss.errai.ui.nav.client.local.TransitionTo;
 import org.jboss.errai.ui.shared.ServerTemplateProvider;
@@ -49,7 +51,6 @@ import javax.inject.Inject;
  */
 @Dependent
 @Templated(value = "/WelcomePage.html#navBar", provider = ServerTemplateProvider.class)
-
 public class NavBar extends Composite {
 
     @Inject
@@ -64,9 +65,8 @@ public class NavBar extends Composite {
     @DataField
     Anchor logoutLink;
 
-    @Inject
     @DataField
-    Anchor logoLink;
+    Element logoLink = DOM.createElement("img");
 
     @Inject
     @DataField
@@ -211,7 +211,7 @@ public class NavBar extends Composite {
     }
 
     @EventHandler("logoLink")
-         public void logo(ClickEvent event) {
+    public void logo(ClickEvent event) {
         event.preventDefault();
         welcomePage.go();
     }
