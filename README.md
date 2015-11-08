@@ -1,5 +1,7 @@
 # friendscube
 
+[![Join the chat at https://gitter.im/friendscube3/friendscube](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/friendscube3/friendscube?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Friendscube a opensource social network site (SNS) under development to be used as a training material to learn mixing: GWT, JBoss Errai, Google App Engine (GAE) and Restlet  to build something amazing for the web.
 
 ## Running
@@ -28,7 +30,12 @@ Clone it, run it, you can help by fixing bugs and making functionalities work or
 
 Talk to us hello-at-dotweblabs-dot-com
 
+## Community
+
+Trello Boards: https://trello.com/friendscube
 
 
 
-Made with ♥ by Dotweblabs and Community
+
+
+Made with ♥ by [Dotweblabs](https://www.facebook.com/dotweblabs) and Community
