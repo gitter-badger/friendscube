@@ -246,20 +246,6 @@ public class LoginPage extends Composite {
             return;
         }
 
-        // DEMO
-        if(uname.equals("demo") && pass.equals("demo")){
-            User user = new User();
-            user.setId(0L);
-            user.setUsername("demo");
-            loggedInUser.setUser(user);
-            Multimap<String, String> state = ArrayListMultimap.create();
-            state.put("token", String.valueOf(user.getClientToken()));
-            long oneDay = 24 * 60 * 60 * 1000;
-            Date expiration = new Date(new Date().getTime() + oneDay);
-            Cookies.setCookie("token", String.valueOf(user.getClientToken()), expiration);
-            welcomePage.go(state);
-        }
-
         TokensResourceProxy tokensResource = GWT.create(TokensResourceProxy.class);
         tokensResource.getClientResource().setReference(ClientProxyHelper.restRootPath() + TokensResourceProxy.TOKENS_URI);
         // TODO: This is not really a good practice!

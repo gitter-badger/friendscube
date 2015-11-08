@@ -18,6 +18,9 @@ package com.dotweblabs.friendscube.rest;
 import com.dotweblabs.friendscube.rest.resources.OriginFilter;
 import com.dotweblabs.friendscube.rest.resources.admin.gae.GaeRegistrationsServerResource;
 import com.dotweblabs.friendscube.rest.resources.gae.*;
+import com.dotweblabs.friendscube.rest.utils.GAEUtil;
+import com.dotweblabs.friendscube.rest.utils.TestData;
+import com.google.appengine.api.datastore.Key;
 import com.google.inject.Guice;
 import com.dotweblabs.friendscube.rest.guice.GuiceConfigModule;
 import com.dotweblabs.friendscube.rest.guice.SelfInjectingServerResourceModule;
@@ -27,6 +30,8 @@ import org.restlet.engine.converter.ConverterHelper;
 import org.restlet.ext.jackson.JacksonConverter;
 import org.restlet.ext.swagger.SwaggerApplication;
 import org.restlet.routing.Router;
+
+import static com.hunchee.twist.ObjectStoreService.store;
 
 import java.util.List;
 
@@ -41,17 +46,12 @@ public class FriendscubeApplication extends SwaggerApplication {
 
     @Override
     public Restlet createInboundRoot() {
-
         Guice.createInjector(new GuiceConfigModule(this.getContext()),
                 new SelfInjectingServerResourceModule());
-
+        createTestData();
         configureConverters();
-
         OriginFilter originFilter = new OriginFilter(getContext());
-
-
         Router router = new Router(getContext());
-
         router.attachDefault(GaeRootServerResource.class);
         // TODO
         router.attach(ROOT_URI + "admin/registrations", GaeRegistrationsServerResource.class);
@@ -112,6 +112,14 @@ public class FriendscubeApplication extends SwaggerApplication {
         if (jacksonConverter != null) {
             Engine.getInstance()
                     .getRegisteredConverters().remove(jacksonConverter);
+        }
+    }
+
+    private void createTestData(){
+        if(GAEUtil.isGaeDev()){
+            Key key = store().put(TestData.createDemoUser("demo@friendscube.xyz"));
+            Key friendKey = store().put(TestData.createDemoUser("demofriend@friendscube.xyz"));
+            store().put(TestData.createDemoFriendship(key.getId(), friendKey.getId()));
         }
     }
 }
