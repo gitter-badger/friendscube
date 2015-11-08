@@ -50,7 +50,7 @@ public class FriendscubeApplication extends SwaggerApplication {
                 new SelfInjectingServerResourceModule());
         createTestData();
         configureConverters();
-        OriginFilter originFilter = new OriginFilter(getContext());
+        //OriginFilter originFilter = new OriginFilter(getContext());
         Router router = new Router(getContext());
         router.attachDefault(GaeRootServerResource.class);
         // TODO
@@ -93,9 +93,9 @@ public class FriendscubeApplication extends SwaggerApplication {
 
         attachSwaggerSpecificationRestlet(router, ROOT_URI + "api-docs");
 
-        originFilter.setNext(router);
+        //originFilter.setNext(router);
 
-        return originFilter;
+        return router;
     }
 
     private void configureConverters() {
