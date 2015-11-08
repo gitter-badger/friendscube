@@ -17,16 +17,16 @@ package com.dotweblabs.friendscube.app.client.local;
 
 import com.dotweblabs.friendscube.app.client.local.util.ClientProxyHelper;
 import com.dotweblabs.friendscube.app.client.local.widgets.NavBar;
+import com.dotweblabs.friendscube.app.client.local.widgets.StatusWidget;
+import com.dotweblabs.friendscube.app.client.local.widgets.UserNavPanel;
 import com.dotweblabs.friendscube.app.client.shared.ActivityResourceProxy;
 import com.dotweblabs.friendscube.app.client.shared.ProfileResourceProxy;
 import com.dotweblabs.friendscube.app.client.shared.StatusesResourceProxy;
 import com.dotweblabs.friendscube.app.client.shared.entity.Profile;
+import com.dotweblabs.friendscube.app.client.shared.entity.User;
+import com.dotweblabs.friendscube.app.client.shared.entity.actions.Status;
 import com.dotweblabs.friendscube.app.client.shared.entity.actions.StatusList;
 import com.dotweblabs.friendscube.app.client.shared.entity.activities.Activity;
-import com.dotweblabs.friendscube.app.client.local.widgets.ProfileInfoWidget;
-import com.dotweblabs.friendscube.app.client.local.widgets.StatusWidget;
-import com.dotweblabs.friendscube.app.client.local.widgets.UserNavPanel;
-import com.dotweblabs.friendscube.app.client.shared.entity.actions.Status;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.StyleInjector;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -35,6 +35,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
+import org.jboss.errai.ui.client.widget.HasModel;
 import org.jboss.errai.ui.nav.client.local.Page;
 import org.jboss.errai.ui.nav.client.local.PageShown;
 import org.jboss.errai.ui.nav.client.local.PageState;
@@ -57,9 +58,10 @@ import javax.inject.Inject;
  * @since 1.0
  */
 @Dependent
-@Templated(value = "/UserFeedsPage.html#userfeeds", provider = ServerTemplateProvider.class)
+@Templated(value = "/FriendFeedsPage.html#friendfeeds", provider = ServerTemplateProvider.class)
 @Page
-public class UserFeedsPage extends Composite {
+public class FriendFeedsPage extends Composite
+        implements HasModel<Profile> {
 
     @Inject
     TransitionTo<WelcomePage> welcomePage;
@@ -91,10 +93,6 @@ public class UserFeedsPage extends Composite {
     @Inject
     LoggedInUser loggedInUser;
 
-//    @Inject
-//    @DataField
-//    ProfileInfoWidget profileInfo;
-
     @Inject
     @DataField
     Image profilePic;
@@ -103,8 +101,14 @@ public class UserFeedsPage extends Composite {
     @DataField
     Image coverPhoto;
 
-    private Profile profile;
+    @Inject
+    @DataField
+    Button addFriendButton;
 
+    @PageState
+    String friend;
+
+    private Profile profile;
 
     @PostConstruct
     public void buildUI(){
@@ -114,6 +118,27 @@ public class UserFeedsPage extends Composite {
     @PageShown
     public void ready(){
         setCurrentProfile();
+    }
+
+    @EventHandler("addFriendButton")
+    public void addFriend(ClickEvent event){
+        event.preventDefault();
+        ActivityResourceProxy activityResourceProxy = GWT.create(ActivityResourceProxy.class);
+        activityResourceProxy.getClientResource().setReference(ClientProxyHelper.restRootPath() + ActivityResourceProxy.ACTIVITY_URI + loggedInUser.getUser().getId() + "/activities");
+        Activity activity = new Activity();
+        activity.setAttributedTo(profile.getUser().getId());
+        activity.setCreatorId(loggedInUser.getUser().getId());
+        activity.setType(Activity.ActivityType.REQUEST.toString());
+        activityResourceProxy.newActivity(activity, new Result<Void>() {
+            @Override
+            public void onFailure(Throwable throwable) {
+
+            }
+            @Override
+            public void onSuccess(Void aVoid) {
+                Window.alert("Request sent");
+            }
+        });
     }
 
     private void setStatusesToPage() {
@@ -138,32 +163,17 @@ public class UserFeedsPage extends Composite {
         });
     }
 
-//    private void setProfileInfoToPage() {
-//        profileInfo.setProfile(profile);
-//        if(profile.getPhoto() != null && !profile.getPhoto().isEmpty()){
-//            profilePic.getElement().setAttribute("src", profile.getPhoto());
-//        }
-//        if(profile.getCoverPhoto() != null && !profile.getCoverPhoto().isEmpty()){
-//            coverPhoto.getElement().setAttribute("src", profile.getCoverPhoto());
-//        }
-//    }
-
-    private String getClientToken() {
-        return loggedInUser.getUser().getClientToken();
-    }
-
     private void setCurrentProfile() {
-        String userToken = loggedInUser.getUser().getClientToken();
-        if(userToken != null){
+        if (friend != null) {
             ProfileResourceProxy profileResourceProxy = GWT.create(ProfileResourceProxy.class);
-            profileResourceProxy.getClientResource().setReference(ClientProxyHelper.restRootPath() + ProfileResourceProxy.PROFILE_URI);
-            profileResourceProxy.getClientResource().addQueryParameter("client_token", userToken);
+            profileResourceProxy.getClientResource().setReference(ClientProxyHelper.restRootPath() + ProfileResourceProxy.PROFILE_URI + "friend");
+            profileResourceProxy.getClientResource().addQueryParameter("client_token", getClientToken());
+            profileResourceProxy.getClientResource().addQueryParameter("user_id", friend);
             profileResourceProxy.retrieve(new Result<Profile>() {
                 @Override
                 public void onFailure(Throwable throwable) {
 
                 }
-
                 @Override
                 public void onSuccess(Profile result) {
                     profile = result;
@@ -176,7 +186,29 @@ public class UserFeedsPage extends Composite {
             profile = loggedInUser.getUser().getProfile();
             //setProfileInfoToPage();
             setStatusesToPage();
+            addFriendButton.setVisible(false);
         }
+    }
+
+    @Override
+    public void setModel(Profile profile){
+        this.profile = profile;
+    }
+
+    @Override
+    public Profile getModel(){
+        return this.profile;
+    }
+
+    private String getClientToken() {
+        String token;
+        String userToken = loggedInUser.getUser().getClientToken();
+        if(userToken != null){
+            token = userToken;
+        } else {
+            token = loggedInUser.getUser().getClientToken();
+        }
+        return token;
     }
 
 }

@@ -214,7 +214,7 @@ public class MessagesPage extends Composite  {
 //        messageResource.getClientResource().setReference(ClientProxyHelper.restRootPath() + MessageResourceProxy.MESSAGES_URI);
 //        messageResource.getClientResource().setMethod(Method.POST);
 //
-//        Message message = new Message(loggedInUser.getUser().getId(),selectedFriend,Msg,null,null);
+//        Message message = new Message(loggedInUser.getModel().getId(),selectedFriend,Msg,null,null);
 //        message.setMessageType(Message.MessageType.NEW.toString());
 //        messageResource.store(message, new Result<Message>() {
 //            @Override
@@ -228,7 +228,7 @@ public class MessagesPage extends Composite  {
 //
 //                MessageWidget w = messageInstance.get();
 //
-//                w.setProfile(loggedInUser.getUser().getProfile());
+//                w.setProfile(loggedInUser.getModel().getProfile());
 //                w.setMessage(result);
 //
 //                messagesflow.add(w);

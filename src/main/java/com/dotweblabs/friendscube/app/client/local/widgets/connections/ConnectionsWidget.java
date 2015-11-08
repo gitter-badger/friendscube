@@ -17,8 +17,9 @@ package com.dotweblabs.friendscube.app.client.local.widgets.connections;
 
 import com.dotweblabs.friendscube.app.client.local.LoggedInUser;
 import com.dotweblabs.friendscube.app.client.local.util.ClientProxyHelper;
+import com.dotweblabs.friendscube.app.client.shared.ProfileResourceProxy;
 import com.dotweblabs.friendscube.app.client.shared.UserResourceProxy;
-import com.dotweblabs.friendscube.app.client.shared.entity.User;
+import com.dotweblabs.friendscube.app.client.shared.entity.Profile;
 import com.dotweblabs.friendscube.app.client.shared.entity.relationships.Friends;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.*;
@@ -86,7 +87,7 @@ public class ConnectionsWidget extends Composite{
                             row = connectionsRowWidget.get();
                             connectionsPlaceHolder.add(row);
                         }
-                        loadUser(friends.getFriends().get(i).getFriendId(), row);
+                        loadUser(friends.getFriends().get(i).getUserId(), row);
                     }
                 }
             }
@@ -94,20 +95,21 @@ public class ConnectionsWidget extends Composite{
 //        show(this.getElement());
     }
 
-    private void loadUser(Long friendId, final ConnectionsRowWidget row) {
-//        Window.alert("loading user");
-        UserResourceProxy userResourceProxy = GWT.create(UserResourceProxy.class);
-        userResourceProxy.getClientResource().setReference(ClientProxyHelper.restRootPath() + UserResourceProxy.USERS_URI + "/" + friendId);
-        userResourceProxy.retrieve(new Result<User>() {
+    private void loadUser(Long friendUserId, final ConnectionsRowWidget row) {
+        String clientToken = loggedInUser.getUser().getClientToken();
+        ProfileResourceProxy proxy = GWT.create(ProfileResourceProxy.class);
+        proxy.getClientResource().setReference(ClientProxyHelper.restRootPath() + ProfileResourceProxy.PROFILE_URI + "/" + friendUserId);
+        proxy.getClientResource().addQueryParameter("client_token", clientToken);
+        proxy.retrieve(new Result<Profile>() {
             @Override
             public void onFailure(Throwable throwable) {
-                Window.alert("Cannot retrieve user..");
+                Window.alert("Cannot retrieve user profile..");
             }
-
             @Override
-            public void onSuccess(User user) {
+            public void onSuccess(Profile profile) {
+                profile.getUser().getId();
                 ConnectionsThumbnailWidget thumbnail = connectionsThumbnailWidget.get();
-                thumbnail.setUser(user);
+                thumbnail.setModel(profile);
                 row.getConnectionRowContainer().add(thumbnail);
             }
         });

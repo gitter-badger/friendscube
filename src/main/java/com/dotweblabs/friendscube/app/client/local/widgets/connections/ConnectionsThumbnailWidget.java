@@ -15,7 +15,9 @@
 */
 package com.dotweblabs.friendscube.app.client.local.widgets.connections;
 
+import com.dotweblabs.friendscube.app.client.local.FriendFeedsPage;
 import com.dotweblabs.friendscube.app.client.local.UserFeedsPage;
+import com.dotweblabs.friendscube.app.client.shared.entity.Profile;
 import com.dotweblabs.friendscube.app.client.shared.entity.User;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
@@ -23,6 +25,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
+import org.jboss.errai.ui.client.widget.HasModel;
 import org.jboss.errai.ui.nav.client.local.PageShown;
 import org.jboss.errai.ui.nav.client.local.TransitionTo;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
@@ -39,9 +42,10 @@ import javax.inject.Inject;
  */
 @Dependent
 @Templated
-public class ConnectionsThumbnailWidget extends Composite{
+public class ConnectionsThumbnailWidget extends Composite
+    implements HasModel<Profile> {
 
-    private User user;
+    private Profile profile;
 
     @Inject
     @DataField
@@ -52,8 +56,7 @@ public class ConnectionsThumbnailWidget extends Composite{
     Image connectionsThumbnailImage;
 
     @Inject
-    TransitionTo<UserFeedsPage> userFeedsPage;
-
+    TransitionTo<FriendFeedsPage> friendFeedsPage;
 
     @PageShown
     public void ready(){
@@ -64,17 +67,19 @@ public class ConnectionsThumbnailWidget extends Composite{
     public void clickThumbNail(ClickEvent event){
         event.preventDefault();
         Multimap<String, String> state = ArrayListMultimap.create();
-        state.put("userToken", user.getClientToken());
-        userFeedsPage.go(state);
+        state.put("friend", profile.getUser().getId() + "");
+        friendFeedsPage.go(state);
     }
 
-    public User getUser() {
-        return user;
+    @Override
+    public Profile getModel() {
+        return profile;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-        String src = user.getProfile().getPhoto();
+    @Override
+    public void setModel(Profile user) {
+        this.profile = user;
+        String src = profile.getPhoto();
         if(src == null || src.equalsIgnoreCase("null")){
             src = "img/friend.jpg";
         }

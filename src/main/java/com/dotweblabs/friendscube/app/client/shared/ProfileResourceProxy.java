@@ -29,7 +29,7 @@ import org.restlet.client.resource.Result;
 
 public interface ProfileResourceProxy extends ClientProxy {
 
-    static final String PROFILE_URI = "profiles/";
+    static final String PROFILE_URI = "profiles";
 
     @Get
     public void retrieve(Result<Profile> callback);

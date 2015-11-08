@@ -123,7 +123,7 @@ public class WelcomePage extends Composite {
 
     @PageShown
     public void ready() {
-        //Logger.consoleLog("user: " + loggedInUser.getUser());
+        //Logger.consoleLog("user: " + loggedInUser.getModel());
         if (loggedInUser.getUser() == null) {
             //Logger.consoleLog("going to login");
             loginPage.go();
@@ -131,6 +131,8 @@ public class WelcomePage extends Composite {
             User user = loggedInUser.getUser();
             userInfo.setModel(loggedInUser.getUser());
 
+            // TODO: API seems not to work now :-(
+            /*
             ProfileResourceProxy profileResourceProxy = GWT.create(ProfileResourceProxy.class);
             profileResourceProxy.getClientResource().setReference(ClientProxyHelper.restRootPath() + ProfileResourceProxy.PROFILE_URI);
             profileResourceProxy.getClientResource().addQueryParameter("client_token", loggedInUser.getUser().getClientToken());
@@ -138,7 +140,7 @@ public class WelcomePage extends Composite {
             profileResourceProxy.retrieve(new Result<Profile>() {
                 @Override
                 public void onFailure(Throwable throwable) {
-                    Window.alert("Could not retrieve profile");
+                    Window.alert("Could not retrieve profile: " + throwable.getMessage());
                 }
 
                 @Override
@@ -150,6 +152,7 @@ public class WelcomePage extends Composite {
                     }
                 }
             });
+            */
 
             StatusesResourceProxy statusesResourceProxy = GWT.create(StatusesResourceProxy.class);
             statusesResourceProxy.getClientResource().setReference(ClientProxyHelper.restRootPath() + StatusesResourceProxy.STATUSES_URI);

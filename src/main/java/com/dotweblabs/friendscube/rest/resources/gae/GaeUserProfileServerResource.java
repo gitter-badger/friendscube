@@ -47,20 +47,23 @@ public class GaeUserProfileServerResource extends SelfInjectingServerResource
 
     String clientToken;
 
-    String username;
+    String userId;
 
     @Override
     protected void doInit() {
         super.doInit();
         clientToken = getQueryValue("client_token");
-        username = getQueryValue("username");
+        userId = getQueryValue("user_id");
     }
 
     @Override
     public Profile getProfile() {
         Profile profile = null;
         try {
-            User user = userService.read(username);
+            User user = null;
+            if(userId != null && !userId.isEmpty()){
+                user = userService.read(Long.valueOf(userId));
+            }
             Long userId = user == null? webTokenService.readUserIdFromToken(clientToken) : user.getId();
             if(userId != null){
                 profile = profileService.readByUserId(userId);
@@ -70,6 +73,8 @@ public class GaeUserProfileServerResource extends SelfInjectingServerResource
             }
         } catch (NumberFormatException e){
             setStatus(Status.CLIENT_ERROR_BAD_REQUEST);
+        } catch (Exception e){
+            e.printStackTrace();
         }
         return profile;
     }
