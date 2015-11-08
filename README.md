@@ -27,3 +27,8 @@ Nothing really works right now, except for the login and basic posting of 'statu
 Clone it, run it, you can help by fixing bugs and making functionalities work or by submitting a bug. 
 
 Talk to us hello-at-dotweblabs-dot-com
+
+
+
+
+Made with ♥ by Dotweblabs and Community
