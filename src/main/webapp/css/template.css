@@ -106,14 +106,13 @@
 					color:#ffffff;
 				}
 				*[role="user-profile-nav"] {
-					font-weight:bold;
 				}
-				*[role="user-profile-nav-blue"] {
+				*[role="user-profile-nav"] div > div:hover {
+                	font-weight:bold;
+                }
+				*[role="user-profile-nav"] .active {
 					font-weight:bold;
 					color:#393e8f;
-				}
-				*[role="user-profile-nav-blue"] > span {
-					color:#a5a5a5;
 				}
 				*[role="user-profile-nav"] > span {
 					color:#a5a5a5;

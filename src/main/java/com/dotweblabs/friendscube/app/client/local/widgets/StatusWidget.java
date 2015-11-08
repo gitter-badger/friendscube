@@ -24,6 +24,7 @@ import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
 import org.jboss.errai.ui.client.widget.HasModel;
+import org.jboss.errai.ui.shared.ServerTemplateProvider;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
 
@@ -35,7 +36,7 @@ import javax.inject.Inject;
  * @since 1.0
  */
 @Dependent
-@Templated
+@Templated(value = "/WelcomePage.html#statusItem", provider = ServerTemplateProvider.class)
 public class StatusWidget extends Composite implements HasModel<Status> {
 
     @Inject

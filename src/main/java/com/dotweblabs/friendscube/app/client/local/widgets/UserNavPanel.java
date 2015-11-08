@@ -21,6 +21,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.dotweblabs.friendscube.app.client.local.FriendsPage;
 import com.dotweblabs.friendscube.app.client.local.UserFeedsPage;
 import org.jboss.errai.ui.nav.client.local.TransitionTo;
+import org.jboss.errai.ui.shared.ServerTemplateProvider;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
@@ -34,7 +35,7 @@ import javax.inject.Inject;
  * @since 1.0
  */
 @Dependent
-@Templated
+@Templated(value = "/UserFeedsPage.html#userNav", provider = ServerTemplateProvider.class)
 public class UserNavPanel extends Composite {
 
     @Inject
