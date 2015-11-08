@@ -1,249 +1,238 @@
-	@font-face { font-family: Proximanova; src: url('fonts/proximanovalight.ttf'); } 
-		body {
-			font-family: Proximanova,sans-serif;
-			font-style: normal;
-			font-weight: 300;
-			text-rendering: optimizeLegibility !important
-		}
-		
-			body {
+@font-face {
+	font-family:Proximanova;
+	src:url(fonts/proximanovalight.ttf);
+}
 
-			}
-			*[role="navigation"] {
-				position:fixed;
-				width:100%;
-				background-color: #189ade;
-				z-index: 100000;
-				padding-top:10px;
-				padding-bottom:10px;
-			}
-			.uk-button {
-	
-			}
-			*[role="main-content"] {
-				min-height:200px;
-				background:#ffffff;
-				padding:50px 15px!important;
-			}
-			
-			
-			
-			*[role="profile"] {
-				background-color: #ffffff;
-				border: 1px solid;
-				display: block;
-				padding: 5px;
-				position: relative;
-			}
-			*[role="nav-icon"] {
-				padding:0 6px!important;
-				background:transparent!important;
-				text-shadow:0 0 0!important;
-				border:0px!important;
-				color:#ffffff!important;
-			}
-			.padding-small-left {
-				padding-left:10px!important;
-			}
-			*[role="update-btn"] {
-				padding:5px 10px;
-			}
-			*[role="user-name"] {
-				color: #1b76dc;
-				font-size: 12pt;
-				font-weight: bold;
-			}
-			*[role="custom-navbar-skins"] {
-				border:0px!important;
-				background:transparent!important;
-			}
-			*[role="small-menu"] {
-				border: 1px solid;
-				color: white;
-				font-size: 16pt;
-				padding: 5px 10px;
-			}
-		
-		/** LANDING PAGE CSS  **/
-				*[role="landing-page-bg"] { 
-				  background: url(../img/form_bg.jpg) no-repeat center center fixed; 
-				  -webkit-background-size: cover;
-				  -moz-background-size: cover;
-				  -o-background-size: cover;
-				  background-size: cover;
-				}
-				*[role="landing-page-body"] {
-					background:transparent;
-				}
-				*[role="landing-form"] {
-					background-color: #189ade;
-					padding-bottom: 10%;
-					padding-top: 25%;
-				}		
-				
-		/** FRIEND-LIST PAGE CSS **/
-				*[role="cover-photo"] {
-					height:25rem;
-					overflow:hidden;
-				}
-				*[role="profile-wall-cover"] {
-					background-color: #ffffff;
-					border: 1px solid;
-					display: block;
-					padding: 5px;
-					position: relative;
-					margin-top:-110px;
-				}
-				*[role="user-friend-name"] {
-					color: #393e8f;
-					font-weight:bold;
-				}
-				*[role="user-friend-status"] {
-					font-weight:bold;
-				}
-				*[role="user-friend-follow-btn"] {
-					background-color:#e46568;
-					color:#ffffff;
-				}
-				*[role="user-profile-nav"] {
-				}
-				*[role="user-profile-nav"] div > div:hover {
-                	font-weight:bold;
-                }
-				*[role="user-profile-nav"] .active {
-					font-weight:bold;
-					color:#393e8f;
-				}
-				*[role="user-profile-nav"] > span {
-					color:#a5a5a5;
-				}
-		/** SIGN UP PAGE CSS **/		
-				
-				*[role="signup-page-bg"] { 
-				  background: url(../img/form_bg.jpg) no-repeat center center fixed; 
-				  -webkit-background-size: cover;
-				  -moz-background-size: cover;
-				  -o-background-size: cover;
-				  background-size: cover;
-				}
-				*[role="signup-page-body"] {
-					background:transparent;
-				}
-				*[role="twitter-btn"] {
-					background:#3bb4e8;
-					color:#ffffff;
-					text-shadow:0 0 0;
-					padding:10px;
-				}
-				*[role="facebook-btn"] {
-					background:#008cba!important;
-					color:#ffffff;
-					text-shadow:0 0 0;
-					padding:10px;
-				}
-				*[role="linkedin-btn"] {
-					background:#008cba !important;
-					color:#ffffff;
-					text-shadow:0 0 0;
-					padding:10px;
-				}
-				*[role="yahoo-btn"] {
-					background:#752476!important;
-					color:#ffffff;
-					text-shadow:0 0 0;
-					padding:10px;
-				}
-				*[role="openid-btn"] {
-					background:#f58d10!important;
-					color:#ffffff;
-					text-shadow:0 0 0;
-					padding:10px;
-				}
-				*[role="google-btn"] {
-					background:#7e94e7!important;
-					color:#ffffff;
-					text-shadow:0 0 0;
-					padding:10px;
-				}
+body {
+	font-family:Proximanova, sans-serif;
+	font-style:normal;
+	font-weight:300;
+	text-rendering:optimizeLegibility!important;
+}
 
+[role="navigation"] {
+	position:fixed;
+	width:100%;
+	background-color:#189ade;
+	z-index:100000;
+	padding-top:10px;
+	padding-bottom:10px;
+}
 
-		/* USER NOTFICATION PAGE CSS */
-				*[role="notification-feeds"] > div > p {
-						font-size:1.2rem;
-				}
-				*[role="notification-feeds"] > div > p > span   {
-						font-weight: bold;
-				}
+[role="main-content"] {
+	min-height:200px;
+	background:#fff;
+	padding:50px 15px!important;
+}
 
-		/* USER MESSAGE */
-				*[role="message-active"]  {
-						background-color:#a4d9ea;
-						padding:5%;
-				}
-				*[role="message"]  {
-						padding:5%;
-				}
+[role="profile"] {
+	background-color:#fff;
+	border:1px solid;
+	display:block;
+	position:relative;
+	padding:5px;
+}
 
-		/* USER NOTIFICATION */
-				#notificationContainer {
-				background-color: #fff;
-				border: 1px solid rgba(100, 100, 100, .4);
-				-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-				overflow: visible;
-				position: absolute;
-				top: 60px;
-				margin-left: -140px;
-				width: 400px;
-				z-index: -1;
-				display: none;
-			}
-			#notificationContainer:before {
-				content: '';
-				display: block;
-				position: absolute;
-				width: 0;
-				height: 0;
-				color: transparent;
-				border: 10px solid black;
-				border-color: transparent transparent white;
-				margin-top: -20px;
-				margin-left: 166px;
-			}
-			#notificationTitle {
-				z-index: 1000;
-				font-weight: bold;
-				padding: 8px;
-				font-size: 13px;
-				background-color: #ffffff;
-				width: 384px;
-				border-bottom: 1px solid #dddddd;
-			}
-			#notificationsBody {
-				padding: 15px 0px 0px 0px !important;
-				min-height:300px;
-				font-size:11pt;
-			}
-			#notificationFooter {
-				background-color: #e9eaed;
-				text-align: center;
-				font-weight: bold;
-				padding: 8px;
-				font-size: 12px;
-				border-top: 1px solid #dddddd;
-			}
-			#notification_count {
-				padding: 3px 7px 3px 7px;
-				background: #cc0000;
-				color: #ffffff;
-				font-weight: bold;
-				margin-left: 77px;
-				border-radius: 9px;
-				position: absolute;
-				margin-top: -11px;
-				font-size: 11px;
-			}
-			
+[role="nav-icon"] {
+	background:transparent!important;
+	text-shadow:0 0 0!important;
+	border:0!important;
+	color:#fff!important;
+	padding:0 6px!important;
+}
 
-				
-		
-		
+.padding-small-left {
+	padding-left:10px!important;
+}
+
+[role="update-btn"] {
+	padding:5px 10px;
+}
+
+[role="user-name"] {
+	color:#1b76dc;
+	font-size:12pt;
+	font-weight:700;
+}
+
+[role="custom-navbar-skins"] {
+	border:0!important;
+	background:transparent!important;
+}
+
+[role="small-menu"] {
+	border:1px solid;
+	color:#FFF;
+	font-size:16pt;
+	padding:5px 10px;
+}
+
+[role="landing-form"] {
+	background-color:#189ade;
+	padding-bottom:10%;
+	padding-top:25%;
+}
+
+[role="cover-photo"] {
+	height:25rem;
+	overflow:hidden;
+}
+
+[role="profile-wall-cover"] {
+	background-color:#fff;
+	border:1px solid;
+	display:block;
+	position:relative;
+	margin-top:-110px;
+	padding:5px;
+}
+
+[role="user-friend-name"] {
+	color:#393e8f;
+	font-weight:700;
+}
+
+[role="user-friend-follow-btn"] {
+	background-color:#e46568;
+	color:#fff;
+}
+
+[role="user-profile-nav"] .active {
+	font-weight:700;
+	color:#393e8f;
+}
+
+[role="user-profile-nav"] > span {
+	color:#a5a5a5;
+}
+
+[role="twitter-btn"] {
+	background:#3bb4e8;
+	color:#fff;
+	text-shadow:0 0 0;
+	padding:10px;
+}
+
+[role="yahoo-btn"] {
+	background:#752476!important;
+	color:#fff;
+	text-shadow:0 0 0;
+	padding:10px;
+}
+
+[role="openid-btn"] {
+	background:#f58d10!important;
+	color:#fff;
+	text-shadow:0 0 0;
+	padding:10px;
+}
+
+[role="google-btn"] {
+	background:#7e94e7!important;
+	color:#fff;
+	text-shadow:0 0 0;
+	padding:10px;
+}
+
+[role="facebook-btn"],
+[role="linkedin-btn"] {
+	background:#008cba!important;
+	color:#fff;
+	text-shadow:0 0 0;
+	padding:10px;
+}
+
+[role="notification-feeds"] > div > p {
+	font-size:1.2rem;
+}
+
+[role="message-active"] {
+	background-color:#a4d9ea;
+	padding:5%;
+}
+
+[role="message"] {
+	padding:5%;
+}
+
+#notificationContainer {
+	background-color:#fff;
+	border:1px solid rgba(100,100,100,.4);
+	-webkit-box-shadow:0 3px 8px rgba(0,0,0,.25);
+	overflow:visible;
+	position:absolute;
+	top:60px;
+	margin-left:-140px;
+	width:400px;
+	z-index:-1;
+	display:none;
+}
+
+#notificationContainer:before {
+	content:'';
+	display:block;
+	position:absolute;
+	width:0;
+	height:0;
+	color:transparent;
+	border:10px solid #000;
+	margin-top:-20px;
+	margin-left:166px;
+	border-color:transparent transparent #FFF;
+}
+
+#notificationTitle {
+	z-index:1000;
+	font-weight:700;
+	font-size:13px;
+	background-color:#fff;
+	width:384px;
+	border-bottom:1px solid #ddd;
+	padding:8px;
+}
+
+#notificationsBody {
+	min-height:300px;
+	font-size:11pt;
+	padding:15px 0 0!important;
+}
+
+#notificationFooter {
+	background-color:#e9eaed;
+	text-align:center;
+	font-weight:700;
+	font-size:12px;
+	border-top:1px solid #ddd;
+	padding:8px;
+}
+
+#notification_count {
+	background:#c00;
+	color:#fff;
+	font-weight:700;
+	margin-left:77px;
+	border-radius:9px;
+	position:absolute;
+	margin-top:-11px;
+	font-size:11px;
+	padding:3px 7px;
+}
+
+[role="landing-page-bg"],
+[role="signup-page-bg"] {
+	background:url(../img/form_bg.jpg) no-repeat center center fixed;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
+}
+
+[role="landing-page-body"],
+[role="signup-page-body"] {
+	background:transparent;
+}
+
+[role="user-friend-status"],[role="user-profile-nav"] div > div:hover,
+[role="notification-feeds"] > div > p > span {
+	font-weight:700;
+}
