@@ -55,7 +55,11 @@ public class FriendsPageItem extends Composite{
 
     public void setProfile(Profile profile) {
         this.profile = profile;
-        profilePic.getElement().setAttribute("src", profile.getPhoto());
+        String src = profile.getPhoto();
+        if(src == null || src.equalsIgnoreCase("null")){
+            src = "img/friend.jpg";
+        }
+        profilePic.getElement().setAttribute("src", src);
         userFullName.setText(profile.getFirstName() + " " +profile.getMiddleName() + " " +profile.getLastName());
         userJobTitle.setText(profile.getJobTitle());
     }

@@ -74,6 +74,10 @@ public class ConnectionsThumbnailWidget extends Composite{
 
     public void setUser(User user) {
         this.user = user;
-        connectionsThumbnailImage.getElement().setAttribute("src", user.getProfile().getPhoto());
+        String src = user.getProfile().getPhoto();
+        if(src == null || src.equalsIgnoreCase("null")){
+            src = "img/friend.jpg";
+        }
+        connectionsThumbnailImage.getElement().setAttribute("src", src);
     }
 }

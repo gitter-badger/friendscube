@@ -62,7 +62,7 @@ public class ConnectionsWidget extends Composite{
     public void ready(){
         UserResourceProxy userResourceProxy = GWT.create(UserResourceProxy.class);
         Long userId = loggedInUser.getUser().getId();
-        userResourceProxy.getClientResource().setReference(ClientProxyHelper.restRootPath() + UserResourceProxy.USERS_URI+"/"+userId+"/friendscube");
+        userResourceProxy.getClientResource().setReference(ClientProxyHelper.restRootPath() + UserResourceProxy.USERS_URI+"/"+userId+"/friends");
         userResourceProxy.listFriends(userId, new Result<Friends>() {
             @Override
             public void onFailure(Throwable throwable) {
