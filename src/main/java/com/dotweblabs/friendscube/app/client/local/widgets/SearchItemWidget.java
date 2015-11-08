@@ -87,7 +87,7 @@ public class SearchItemWidget extends Composite implements HasModel<SearchItem>{
         event.preventDefault();
         //temporary just to be able to see other user's profile
         Multimap<String, String> state = ArrayListMultimap.create();
-        state.put("userToken", item.generateUrl());
+        state.put("friend", item.generateUrl());
         userFeedsPage.go(state);
     }
 }

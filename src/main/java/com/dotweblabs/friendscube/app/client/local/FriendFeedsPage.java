@@ -126,7 +126,7 @@ public class FriendFeedsPage extends Composite
         ActivityResourceProxy activityResourceProxy = GWT.create(ActivityResourceProxy.class);
         activityResourceProxy.getClientResource().setReference(ClientProxyHelper.restRootPath() + ActivityResourceProxy.ACTIVITY_URI + loggedInUser.getUser().getId() + "/activities");
         Activity activity = new Activity();
-        activity.setAttributedTo(profile.getUser().getId());
+        activity.setAttributedTo(profile.getUserId());
         activity.setCreatorId(loggedInUser.getUser().getId());
         activity.setType(Activity.ActivityType.REQUEST.toString());
         activityResourceProxy.newActivity(activity, new Result<Void>() {

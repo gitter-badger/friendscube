@@ -107,7 +107,6 @@ public class ConnectionsWidget extends Composite{
             }
             @Override
             public void onSuccess(Profile profile) {
-                profile.getUser().getId();
                 ConnectionsThumbnailWidget thumbnail = connectionsThumbnailWidget.get();
                 thumbnail.setModel(profile);
                 row.getConnectionRowContainer().add(thumbnail);

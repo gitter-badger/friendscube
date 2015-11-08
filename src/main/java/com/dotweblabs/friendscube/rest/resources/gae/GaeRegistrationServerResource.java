@@ -198,7 +198,7 @@ public class GaeRegistrationServerResource extends SelfInjectingServerResource
             userProfile.setEmail(registration.getEmail());
             userProfile.setCreated(new Date());
             userProfile.setModified(new Date());
-            userProfile.setUser(user);
+            userProfile.setUserId(user.getId());
             user.setProfile(userProfile);
             profileService.create(userProfile);
             service.delete(registration.getEmail());

@@ -15,11 +15,18 @@
 */
 package com.dotweblabs.friendscube.app.client.local.widgets.connections;
 
+import com.dotweblabs.friendscube.app.client.local.FriendFeedsPage;
 import com.dotweblabs.friendscube.app.client.shared.entity.Profile;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
+import org.jboss.errai.ui.nav.client.local.TransitionTo;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
+import org.jboss.errai.ui.shared.api.annotations.EventHandler;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
 
 import javax.enterprise.context.Dependent;
@@ -34,10 +41,12 @@ import javax.inject.Inject;
 @Templated
 public class FriendsPageItem extends Composite{
 
+    @Inject
+    TransitionTo<FriendFeedsPage> friendFeedsPage;
 
     @Inject
     @DataField
-    Label userFullName;
+    Anchor userFullName;
 
     @Inject
     @DataField
@@ -62,5 +71,13 @@ public class FriendsPageItem extends Composite{
         profilePic.getElement().setAttribute("src", src);
         userFullName.setText(profile.getFirstName() + " " +profile.getMiddleName() + " " +profile.getLastName());
         userJobTitle.setText(profile.getJobTitle());
+    }
+
+    @EventHandler("userFullName")
+    public void viewFriend(ClickEvent event){
+        event.preventDefault();
+        Multimap<String, String> state = ArrayListMultimap.create();
+        state.put("friend", String.valueOf(profile.getUserId()));
+        friendFeedsPage.go(state);
     }
 }

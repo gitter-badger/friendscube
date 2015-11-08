@@ -26,8 +26,6 @@ public class ProfileSearchItem extends SearchItem<Profile>{
 
     private Profile profile;
 
-    private String token;
-
     public ProfileSearchItem(){
 
     }
@@ -37,11 +35,10 @@ public class ProfileSearchItem extends SearchItem<Profile>{
         picUrl = profile.getPhoto();
         header = profile.getFirstName() +" "+ profile.getMiddleName() +" "+ profile.getLastName();
         type = "profile";
-        token = model.getUser().getClientToken();
     }
 
     @Override
     public String generateUrl() {
-        return token;
+        return String.valueOf(profile.getUserId());
     }
 }

@@ -44,7 +44,8 @@ public class GaeProfileService implements ProfileService {
         store().transact(new Function<Key>() {
             @Override
             public Key execute() {
-                User user = profile.getUser();
+                Long userId = profile.getUserId();
+                User user = store().get(User.class, userId);
                 Key profileKey = store().put(user);
               return profileKey;
             }
@@ -67,7 +68,7 @@ public class GaeProfileService implements ProfileService {
         User user  = userService.read(userId);
         if(user != null){
             Profile profile = user.getProfile();
-            profile.setUser(user);
+            profile.setUserId(user.getId());
             return profile;
         }
         return null;
@@ -108,7 +109,7 @@ public class GaeProfileService implements ProfileService {
         for (User u : userList.getList()){
             Profile p = u.getProfile();
             u.setClientToken(webTokenService.createToken(u.getId()));
-            p.setUser(u);
+            p.setUserId(u.getId());
             searchItems.getSearchItems().add(new ProfileSearchItem(p));
         }
         System.out.println("profiles found: " + userList.getList().size());

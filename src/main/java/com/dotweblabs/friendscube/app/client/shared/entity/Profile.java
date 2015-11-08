@@ -32,8 +32,9 @@ public class Profile implements Serializable {
 
     @Id
     private Long id;
-    @Parent
-    private User user;
+    private Long userId;
+//    @Parent
+//    private User user;
     private String firstName;
     private String middleName;
     private String lastName;
@@ -143,6 +144,7 @@ public class Profile implements Serializable {
         this.coverPhoto = coverPhoto;
     }
 
+    /*
     public User getUser() {
         return user;
     }
@@ -150,6 +152,7 @@ public class Profile implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
+    */
 
     public String getJobTitle() {
         return jobTitle;
@@ -165,5 +168,13 @@ public class Profile implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

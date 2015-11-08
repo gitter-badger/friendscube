@@ -67,7 +67,7 @@ public class ConnectionsThumbnailWidget extends Composite
     public void clickThumbNail(ClickEvent event){
         event.preventDefault();
         Multimap<String, String> state = ArrayListMultimap.create();
-        state.put("friend", profile.getUser().getId() + "");
+        state.put("friend", profile.getUserId() + "");
         friendFeedsPage.go(state);
     }
 
