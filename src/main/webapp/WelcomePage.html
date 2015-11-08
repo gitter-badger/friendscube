@@ -192,17 +192,17 @@
 									<div class="uk-width-9-10">
 										<div class="uk-grid">
 											<div class="uk-width-large-1-1">
-												<h3 role="user-name">{user.name}</h3>
+												<h3 data-field="profileName" role="user-name">{user.name}</h3>
 											</div>
 											<div class="uk-width-large-1-1">
-												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
+												<p data-field="message">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
 											</div>
 											<div class="uk-width-large-1-1 uk-margin-top">
-												<span><i class="fa fa-clock-o"></i>&nbsp;{status.modified}</span>
+												<span><i class="fa fa-clock-o"></i><span data-field="time">>&nbsp;{status.modified}</span></span>
 											</div>
 											<div class="uk-width-large-1-1 uk-margin-top">
 												<div class="uk-grid uk-grid-small">
-													<div class="uk-width-large-1-10 uk-width-3-10">
+													<div data-field="like" class="uk-width-large-1-10 uk-width-3-10">
 														<span><i class="fa fa-heart"></i> &nbsp;Like </span>
 													</div>
 													<div class="uk-width-large-2-10 uk-width-4-10">
